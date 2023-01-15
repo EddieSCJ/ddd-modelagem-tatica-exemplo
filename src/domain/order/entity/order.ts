@@ -17,6 +17,11 @@ export default class Order {
         this._total += item.price;
     }
 
+    total() {
+        this._total = this._items.reduce((total, item) => total + item.total(), 0);
+        return this._total;
+    }
+
     removeItem(item: OrderItem) {
         var index = this._items.indexOf(item);
         if (index > -1) {
@@ -27,11 +32,11 @@ export default class Order {
 
     // Princípio da autovalidação
     validateBasicOrder() {
-        if (this._id == null) {
+        if (this._id == null || this._id == "") {
             throw new Error('Order ID must be provided and not empty');
         }
 
-        if (this._customerId == null) {
+        if (this._customerId == null || this._customerId == "") {
             throw new Error('Order must have a customer');
         }
     }
