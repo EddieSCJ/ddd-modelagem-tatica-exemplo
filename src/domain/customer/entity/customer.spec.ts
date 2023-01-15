@@ -36,6 +36,12 @@ describe("Customer", () => {
             expect(() => customer.changeName("Ma"))
                 .toThrowError(tooSmallMessage("name"));
         });
+
+        it("Change Name", function () {
+            const customer = new Customer("123", "Maralda");
+            customer.changeName("Maralda");
+            expect(customer.name).toBe("Maralda");
+        });
     });
 
     describe("Activation", () => {

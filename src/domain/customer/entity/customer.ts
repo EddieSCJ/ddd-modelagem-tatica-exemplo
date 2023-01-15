@@ -6,10 +6,14 @@ export default class Customer {
     _address: Address;
     _active: boolean = false;
 
-    constructor(public id: string, public name: string) {
+    constructor(public id: string, public customerName: string) {
         this._id = id;
-        this._name = name;
+        this._name = customerName;
         this.validateBasicCustomer();
+    }
+
+    get name() : string {
+        return this._name;
     }
 
     changeName(newName: string) {
