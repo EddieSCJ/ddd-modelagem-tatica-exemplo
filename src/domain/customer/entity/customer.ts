@@ -1,7 +1,9 @@
+import Address from './../value-object/address';
+
 export default class Customer {
     _id: string;
     _name: string;
-    _address: string;
+    _address: Address;
     _active: boolean = false;
 
     constructor(public id: string, public name: string) {
@@ -13,6 +15,11 @@ export default class Customer {
     changeName(newName: string) {
         this._name = newName;
         this.validateBasicCustomer();
+    }
+
+    changeAddress(newAddress: Address) {
+        this._address = newAddress;
+        this.validateAddress();
     }
 
     activate() {
@@ -36,8 +43,14 @@ export default class Customer {
     }
 
     validateActivation() {
-        if (this._address == null || this._address == "") {
+        if (!this._address) {
             throw new Error('Customer address must be provided and not empty to activate customer');
+        }
+    }
+
+    private validateAddress() {
+        if (!this._address) {
+            throw new Error('Customer address must be provided and not empty');
         }
     }
 }
