@@ -3,7 +3,7 @@ import Address from './../value-object/address';
 export default class Customer {
     _id: string;
     _name: string;
-    _address: Address;
+    _address!: Address;
     _active: boolean = false;
 
     constructor(public id: string, public customerName: string) {

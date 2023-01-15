@@ -42,6 +42,13 @@ transform: {
 }
 ```
 
+And add this to your [package.json](package.json)
+```
+"scripts": {
+    "test": "node_modules/.bin/tsc --noEmit && jest"
+}
+```
+
 ### Running your tests
 ```bash
 npm test

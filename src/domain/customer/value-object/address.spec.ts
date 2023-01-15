@@ -1,7 +1,7 @@
 import Address from "./address";
 
-let emptyFieldMessage = (field) => `${field} must be provided and not empty`;
-let tooSmallNumberMessage = (field) => `${field} must be provided and greater than zero`;
+let emptyFieldMessage = (field: String) => `${field} must be provided and not empty`;
+let tooSmallNumberMessage = (field: String) => `${field} must be provided and greater than zero`;
 describe("Address", () => {
     describe("Empty Field", () => {
         it('When street is empty, throw an error', function () {
