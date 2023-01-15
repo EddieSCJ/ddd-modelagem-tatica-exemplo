@@ -26,7 +26,7 @@ export default class Customer {
 
     // Princípio da autovalidação
     validateBasicCustomer() {
-        if (this._id == null) {
+        if (this._id == null || this._id == "") {
             throw new Error('Customer ID must be provided and not empty');
         }
 
