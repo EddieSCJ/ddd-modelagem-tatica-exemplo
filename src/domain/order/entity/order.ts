@@ -30,6 +30,10 @@ export default class Order {
         }
     }
 
+    calculateRewardPoints() {
+        return this.total() * 0.1;
+    }
+
     // Princípio da autovalidação
     validateBasicOrder() {
         if (this._id == null || this._id == "") {
